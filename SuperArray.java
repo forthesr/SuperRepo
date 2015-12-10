@@ -1,9 +1,8 @@
 /*
-Lisa Shi, Kathy Lau
-Error - No team name found
+Lisa Shi
 APCS1 pd5
-HW41 -- Array of Titanium
-2015 - 12 - 05
+HW45 -- Come Together
+2015 - 12 - 09
 */
 
 /*****************************
@@ -25,14 +24,14 @@ HW41 -- Array of Titanium
 public class SuperArray{
 
 		//~~~~~INSTANCE VARS~~~~~
-    private Comparable _data;
-	private Comparable _lastPos;//position of last meaningful value
-	private Comparable _size;//size of this instance of SuperArray
+		private Object[] _data;
+		private int _lastPos;//position of last meaningful value
+		private int _size;//size of this instance of SuperArray
 
 		//~~~~~METHODS~~~~~
     //default constructor – initializes 10-item array
     public SuperArray() {
-    _data = new Comparable[10];
+    _data = new Object[10];
     _lastPos=-1;
     _size = 0; }
 
@@ -44,17 +43,17 @@ public class SuperArray{
     return retS;}
 
     private void expand() {
-    Comparable[] _data2=new Comparable[_data.length*2];
+    Object[] _data2=new Object[_data.length*2];
     for (int i =0; i < _data.length; i++){
       _data2[i]=_data[i];
     }_data=_data2;}
 
-    public Comparable get( Comparable index ) {
+    public Object get( int index ) {
     	return _data[index];
     }
 
     public Comparable set( int index, Comparable newVal ) {
-    Comparable temp = _data[index];
+    Comparable temp = (Comparable)_data[index];
     _data[index]=newVal;
      return temp;
  }
@@ -83,45 +82,60 @@ public class SuperArray{
     _size--;
     _lastPos--;}}
 
+
+    //linSearch
+    //takes in comparable and finds it in array
+
+    public int linSearch(Comparable insert){
+    	int temp = 1;
+    	for(int i = 0; i < _data.length; i++){
+    			if (insert == _data[i]){
+    				temp = 1;
+    			}
+    			else {temp = -1; }
+    	}
+    	return temp;   
+    }
+
+
+    //isSorted
+    // checks if next slot of Array is larger than the one before
+    	public boolean isSorted(){
+    		boolean result = false;
+
+    		for (int i = 0; i < _data.length; i++){
+
+    			Comparable firstData = (Comparable) _data[i];
+    			Comparable secondData = (Comparable) _data[i+1];
+    			//if the first one is smaller, will yield -1
+    			if(firstData.compareTo(secondData) == -1)
+    			{
+    				result = true;
+    			}
+    			else
+    			{
+    				result = false;
+    				return result;
+    			}
+    		}
+    		return result;
+    	}
+
 	//main method for testing
 	public static void main( String[] args ) {
+
 	SuperArray mixed = new SuperArray();
-	mixed.add( new Binary(2) );
 	mixed.add( new Hexadecimal(60) );
-	mixed.add( new Binary(16) );
+	mixed.add( new Binary("16") );
 	mixed.add( new Hexadecimal(100) );
 	mixed.add( new Rational(2, 1) );
-	
-	
-/*	Comparable mayfield = new SuperArray();
-	System.out.println("Printing empty SuperArray mayfield...");
-	System.out.println(mayfield);
 
-	  mayfield.add(5);
-	  mayfield.add(4);
-	  mayfield.add(3);
-	  mayfield.add(2);
-	  mayfield.add(1);
+	Hexadecimal a = new Hexadecimal(100);
+	Rational b = new Rational(3, 6);
+	System.out.println( mixed.linSearch(b) );
+	System.out.println( mixed.linSearch(a) );
 
-	  System.out.println("Printing populated SuperArray mayfield...");
-	  System.out.println(mayfield);
-
-	  mayfield.remove(3);
-	  System.out.println("Printing SuperArray mayfield post-remove...");
-	  System.out.println(mayfield);
-	  mayfield.remove(3);
-	  System.out.println("Printing SuperArray mayfield post-remove...");
-	  System.out.println(mayfield);
-
-	  mayfield.add(3,99);
-	  System.out.println("Printing SuperArray mayfield post-insert...");
-	  System.out.println(mayfield);
-	  mayfield.add(2,88);
-	  System.out.println("Printing SuperArray mayfield post-insert...");
-	  System.out.println(mayfield);
-	  mayfield.add(1,77);
-	  System.out.println("Printing SuperArray mayfield post-insert...");
-	  System.out.println(mayfield); */
+	System.out.println( mixed.isSorted() );
 
 		}//end main
 		
