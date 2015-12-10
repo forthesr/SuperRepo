@@ -1,11 +1,11 @@
 /*
-Lisa Shi, Kathy Lau
+Lisa Shi
 APCS1 pd5
-HW41 -- In America, the Driver Sits on the Left
+HW45 -- Come Together
 12 - 03 - 2015
 */
 
-public class Rational implement Comparable{
+public class Rational implements Comparable{
 
 //Instance variables for the numerator and denominator
     private int num;
@@ -124,14 +124,14 @@ public void subtract(Rational jordans) {
     //HW 41_ Update to match with class Comparable 
      // take Object and compares it ONLY IF it can be read as a rational
     public int compareTo(Object other){
-        	if (other == null){
-    		throw new NullPointerException("null object");
-    	}
-    	else if (!(other instanceof Comparable){
-    		throw new ClassCastException("not same class");
-    	}
+            if (other == null){
+            throw new NullPointerException("null object");
+        }
+        else if (!(other instanceof Comparable) ){
+            throw new ClassCastException("not same class");
+        }
       else if (other instanceof Rational){
-          return _n * ((Rational)other).getD() -  _d* ((Rational)other).getN();
+          return num * ((Rational)other).getD() -  den* ((Rational)other).getN();
           }
         else
         {throw new ClassCastException("Requires an instance of the 'Rational' class.");}
@@ -142,6 +142,15 @@ public boolean equals(Object other){
     return ( (this == other) || (compareTo(other)==0) );
 }
 
+public int getD()
+{
+    return den;
+}
+
+public int getN()
+{
+    return num;
+}
 public static void main(String[] args){
 
 //new rational numbers
