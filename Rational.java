@@ -127,7 +127,7 @@ public void subtract(Rational jordans) {
         	if (other == null){
     		throw new NullPointerException("null object");
     	}
-    	else if (!(other instanceof Rational){
+    	else if (!(other instanceof Comparable){
     		throw new ClassCastException("not same class");
     	}
       else if (other instanceof Rational){
