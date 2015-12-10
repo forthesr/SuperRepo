@@ -85,9 +85,15 @@ public class SuperArray{
 
 	//main method for testing
 	public static void main( String[] args ) {
-
-		//Given test calls
-	Comparable mayfield = new SuperArray();
+	SuperArray mixed = new SuperArray();
+	mixed.add( new Binary(2) );
+	mixed.add( new Hexadecimal(60) );
+	mixed.add( new Binary(16) );
+	mixed.add( new Hexadecimal(100) );
+	mixed.add( new Rational(2, 1) );
+	
+	
+/*	Comparable mayfield = new SuperArray();
 	System.out.println("Printing empty SuperArray mayfield...");
 	System.out.println(mayfield);
 
@@ -115,7 +121,7 @@ public class SuperArray{
 	  System.out.println(mayfield);
 	  mayfield.add(1,77);
 	  System.out.println("Printing SuperArray mayfield post-insert...");
-	  System.out.println(mayfield);
+	  System.out.println(mayfield); */
 
 		}//end main
 		
