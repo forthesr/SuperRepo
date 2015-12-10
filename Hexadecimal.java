@@ -130,7 +130,7 @@ HW44 This or That or fourteen other Things
          	if (other == null){
     		throw new NullPointerException("null object");
     	}
-    	else if (!(other instanceof Rational){
+    	else if (!(other instanceof Comparable){
     		throw new ClassCastException("not same class");
     	}
       else if(this._decNum == ((Hexadecimal)other)._decNum){
