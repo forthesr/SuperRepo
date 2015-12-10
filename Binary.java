@@ -150,10 +150,10 @@ public class Binary implement Comparable{
     	if (other == null){
     		throw new NullPointerException("null object");
     	}
-    	if (!(other instanceof Rational){
+    	else if (!(other instanceof Rational){
     		throw new ClassCastException("not same class");
     	}
-	     if(this._decNum == ((Binary)other)._decNum){
+	    else  if(this._decNum == ((Binary)other)._decNum){
 	         return 0;
           	}
 	     else if(this._decNum > ((Binary)other)._decNum){
