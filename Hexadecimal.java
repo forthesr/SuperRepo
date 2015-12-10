@@ -1,12 +1,11 @@
 /*
-Lisa Shi, Mei Huang
-Team -- 
+Lisa Shi
 APCS1 PD5
-HW44 This or That or fourteen other Things
+HW45 Come Together
 2015-12-08
  */
 
- public class Hexadecimal implement Comparable {
+ public class Hexadecimal implements Comparable {
   private int _decNum;
   private String _hexNum;
   private final static String HEXDIGITS = "0123456789ABCDEF";
@@ -114,7 +113,7 @@ HW44 This or That or fourteen other Things
        boolean aliasCheck = this == other;
        if ( !aliasCheck ){
          aliasCheck = other instanceof Hexadecimal
-          && this._HexNum.equals(((Hexidecimal)other)._hexNum);
+          && this._hexNum.equals(((Hexadecimal)other)._hexNum);
            }
        return aliasCheck;
      }
@@ -127,12 +126,12 @@ HW44 This or That or fourteen other Things
       =============================================*/
 
     public int compareTo( Object other ) {
-         	if (other == null){
-    		throw new NullPointerException("null object");
-    	}
-    	else if (!(other instanceof Comparable){
-    		throw new ClassCastException("not same class");
-    	}
+          if (other == null){
+        throw new NullPointerException("null object");
+      }
+      else if (!(other instanceof Comparable) ){
+        throw new ClassCastException("not same class");
+      }
       else if(this._decNum == ((Hexadecimal)other)._decNum){
            return 0;
             }
