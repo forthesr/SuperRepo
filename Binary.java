@@ -150,7 +150,7 @@ public class Binary implement Comparable{
     	if (other == null){
     		throw new NullPointerException("null object");
     	}
-    	else if (!(other instanceof Rational){
+    	else if (!(other instanceof Comparable){
     		throw new ClassCastException("not same class");
     	}
 	    else  if(this._decNum == ((Binary)other)._decNum){
