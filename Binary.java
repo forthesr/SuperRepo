@@ -147,17 +147,20 @@ public class Binary {
       =============================================*/
 
     public int compareTo( Object other ) {
+    	if (other == null){
+    		throw new NullPointerException("null object");
+    	}
+    	if (!(other instanceof Rational){
+    		throw new ClassCastException("not same class");
+    	}
 	     if(this._decNum == ((Binary)other)._decNum){
 	         return 0;
           	}
 	     else if(this._decNum > ((Binary)other)._decNum){
 	          return 1;
 	           }
-	     else if(this._decNum < ((Binary)other)._decNum){
-		   return -1;
-		   }
-	    else{
-		 throw NullPointerException;}
+	     else {
+		   return -1;}
           }
 
     //main method for testing
