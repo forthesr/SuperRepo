@@ -6,7 +6,7 @@ HW44 This or That or fourteen other Things
 2015-12-08
  */
 
- public class Hexadecimal {
+ public class Hexadecimal implement Comparable {
   private int _decNum;
   private String _hexNum;
   private final static String HEXDIGITS = "0123456789ABCDEF";
@@ -127,7 +127,13 @@ HW44 This or That or fourteen other Things
       =============================================*/
 
     public int compareTo( Object other ) {
-       if(this._decNum == ((Hexadecimal)other)._decNum){
+         	if (other == null){
+    		throw new NullPointerException("null object");
+    	}
+    	else if (!(other instanceof Rational){
+    		throw new ClassCastException("not same class");
+    	}
+      else if(this._decNum == ((Hexadecimal)other)._decNum){
            return 0;
             }
        else if(this._decNum > ((Hexadecimal)other)._decNum){
