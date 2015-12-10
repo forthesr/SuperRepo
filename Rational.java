@@ -5,7 +5,7 @@ HW41 -- In America, the Driver Sits on the Left
 12 - 03 - 2015
 */
 
-public class Rational{
+public class Rational implement Comparable{
 
 //Instance variables for the numerator and denominator
     private int num;
@@ -123,8 +123,14 @@ public void subtract(Rational jordans) {
      // compareTo
     //HW 41_ Update to match with class Comparable 
      // take Object and compares it ONLY IF it can be read as a rational
-    public int compareTo(Object other)
-      {if (other instanceof Rational){
+    public int compareTo(Object other){
+        	if (other == null){
+    		throw new NullPointerException("null object");
+    	}
+    	else if (!(other instanceof Rational){
+    		throw new ClassCastException("not same class");
+    	}
+      else if (other instanceof Rational){
           return _n * ((Rational)other).getD() -  _d* ((Rational)other).getN();
           }
         else
